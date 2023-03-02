@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="dialog" stylesheets="@../style/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.manager.views.popup.ContractEdit">
+   <children>
+      <VBox styleClass="dialog-icon">
+         <children>
+            <SVGPath content="M27 0c2.761 0 5 2.239 5 5 0 1.126-0.372 2.164-1 3l-2 2-7-7 2-2c0.836-0.628 1.874-1 3-1zM2 23l-2 9 9-2 18.5-18.5-7-7-18.5 18.5zM22.362 11.362l-14 14-1.724-1.724 14-14 1.724 1.724z" scaleX="2.0" scaleY="2.0" />
+         </children>
+      </VBox>
+      <VBox styleClass="dialog-body" HBox.hgrow="ALWAYS">
+         <children>
+            <Label fx:id="title" styleClass="dialog-title" text="Edit Contract" />
+            <VBox styleClass="dialog-message-box">
+               <children>
+                  <Label fx:id="message" />
+                  <VBox styleClass="dialog-input-box">
+                     <children>
+                        <Label text="Customer" />
+                        <ComboBox fx:id="customer" maxWidth="1.7976931348623157E308" promptText="Select Customer" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="57.0" styleClass="dialog-input-box">
+                     <children>
+                        <Label text="Employee" />
+                        <ComboBox fx:id="employee" maxWidth="1.7976931348623157E308" promptText="Select Employee" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="114.0" styleClass="dialog-input-box">
+                     <children>
+                        <Label text="Service" />
+                        <ComboBox fx:id="service" maxWidth="1.7976931348623157E308" promptText="Select Service" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="171.0" styleClass="dialog-input-box">
+                     <children>
+                        <Label text="Start Date" />
+                        <DatePicker fx:id="startDate" maxWidth="1.7976931348623157E308" promptText="Select Start Date" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="228.0" styleClass="dialog-input-box">
+                     <children>
+                        <Label text="End Date" />
+                        <DatePicker fx:id="endDate" maxWidth="1.7976931348623157E308" promptText="Start End Date" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="285.0" styleClass="dialog-input-box">
+                     <children>
+                        <Label text="Deposite" />
+                        <TextField fx:id="deposite" promptText="Enter Deposite" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="342.0" styleClass="dialog-input-box">
+                     <children>
+                        <Label text="Total Money" />
+                        <TextField fx:id="totalMoney" promptText="Enter Total Money" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <HBox styleClass="dialog-button-box">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#save" styleClass="wid-120" text="SAVE" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#close" styleClass="wid-120" text="CLOSE" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

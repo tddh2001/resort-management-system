@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
+    <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
+    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+    <title>Title</title>
+</head>
+<body>
+<div id="wrapper">
+    <nav th:replace="layout :: navtop2"></nav>
+    <nav th:replace="layout :: navtop"></nav>
+    <div id="page-wrapper" th:fragment="navside-index">
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="section-title">Edit Contract</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form th:action="@{/contract/edit}"
+                                          th:object="${contract}" method="post">
+                                        <div class="container ">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <form class="form-light mt-20" role="form">
+                                                        <input type="hidden" th:field="*{contract_id}" >
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="cus">Customer</label>
+                                                                    <select class="form-control"
+                                                                            th:field="*{customer.customerId}" id="cus">
+                                                                        <option th:each="cus : ${listCus}"
+                                                                                th:value="${cus.customerId}"
+                                                                                th:text="${cus.customerName}+ ' | ' +${cus.customerId}"></option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="emp">Employee</label>
+                                                                    <select class="form-control"
+                                                                            th:field="*{employee.employeeId}" id="emp">
+                                                                        <option th:each="emp : ${listEmp}"
+                                                                                th:value="${emp.employeeId}"
+                                                                                th:text="${emp.employeeName}+ ' | ' +${emp.employeeId}"></option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="form-group" hidden="hidden">
+                                                            <label for="ser">Service</label>
+                                                            <select class="form-control"
+                                                                    th:field="*{service.service_id}" id="ser">
+                                                                <option th:each="ser : ${listSer}"
+                                                                        th:value="${ser.service_id}"
+                                                                        th:text="${ser.service_name}+ ' | ' +${ser.service_id}"></option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Start date</label>
+                                                                    <input th:field="*{contract_start_date}" type="date"
+                                                                           class="form-control"
+                                                                           placeholder="Start date">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>End date</label>
+                                                                    <input th:field="*{contract_end_date}" type="date"
+                                                                           class="form-control" placeholder="End date">
+                                                                </div>
+                                                            </div>
+<!--                                                            <label th:if="${#fields.hasErrors('contractEndDate')}" th:errors="*{contract_end_date}" style="color: red"></label>-->
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Deposit</label>
+                                                            <input th:field="*{contract_deposite}" type="number"
+                                                                   class="form-control" placeholder="Deposit">
+                                                            <label th:if="${#fields.hasErrors('contract_deposite')}" th:errors="*{contract_deposite}" style="color: red"></label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Total money</label>
+                                                            <input th:field="*{contract_total_money}" type="number"
+                                                                   class="form-control" placeholder="Total money">
+                                                            <label th:if="${#fields.hasErrors('contract_total_money')}" th:errors="*{contract_total_money}" style="color: red"></label>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary btn-lg">Save changes</button>
+                                                        <p><br/></p>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

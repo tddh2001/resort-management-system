@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="searchTable">
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <td th:text="${contract.contract_id}"></td>
+        </tr>
+        <tr>
+            <th>Customer</th>
+            <td th:text="${contract.customer.customerName}"></td>
+        </tr>
+        <tr>
+            <th>Employee</th>
+            <td th:text="${contract.employee.employeeName}"></td>
+        </tr>
+        <tr>
+            <th>Service</th>
+            <td th:text="${contract.service.service_name}"></td>
+        </tr>
+        <tr>
+            <th>Start date</th>
+            <td th:text="${contract.contract_start_date}"></td>
+        </tr>
+        <tr>
+            <th>End date</th>
+            <td th:text="${contract.contract_end_date}"></td>
+        </tr>
+        <tr>
+            <th>Deposit</th>
+            <td th:text="${contract.contract_deposite}"></td>
+        </tr>
+        <tr>
+            <th>Total money</th>
+            <td th:text="${contract.contract_total_money}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
