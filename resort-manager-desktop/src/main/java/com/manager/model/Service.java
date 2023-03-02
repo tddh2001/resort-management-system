@@ -21,6 +21,9 @@ public class Service {
     private String description_other_convenience;
     private double pool_area;
     private int number_of_floors;
+
+    private boolean isValid;
+
     @ManyToOne
     @JoinColumn(name = "rent_type")
     private RentType rentType;
